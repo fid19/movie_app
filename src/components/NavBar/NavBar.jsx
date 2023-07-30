@@ -32,6 +32,7 @@ function NavBar() {
           dispatch(setUser(userData));
         } else {
           const sessionId = await createSessionId();
+          console.log(sessionId);
           const { data: userData } = await moviesApi.get(`/account?session_id=${sessionId}`);
           dispatch(setUser(userData));
         }
@@ -77,7 +78,7 @@ function NavBar() {
                 <Avatar
                   style={{ width: 30, height: 30 }}
                   alt="Profile"
-                  src="https://w7.pngwing.com/pngs/613/636/png-transparent-computer-icons-user-profile-male-avatar-avatar-heroes-logo-black-thumbnail.png"
+                  src={`https://www.themoviedb.org/t/p/w64_and_h64_face${user?.avatar?.tmdb?.avatar_path}`}
                 />
               </Button>
             )}
